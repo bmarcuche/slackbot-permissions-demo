@@ -18,7 +18,7 @@ We take security vulnerabilities seriously. If you discover a security vulnerabi
 
 Instead, please:
 
-1. **Email**: Send details to [bruno.marcuche@gmail.com](mailto:bruno.marcuche@gmail.com)
+1. **Email**: Send details to [security@your-org.com](mailto:security@your-org.com)
 2. **Subject**: Use "SECURITY: Slackbot Permissions Demo Vulnerability"
 3. **Include**:
    - Description of the vulnerability
@@ -117,7 +117,7 @@ We recognize security researchers who help improve our security:
 ### 📞 Contact
 
 For security-related questions or concerns:
-- **Email**: [bruno.marcuche@gmail.com](mailto:bruno.marcuche@gmail.com)
+- **Email**: [security@your-org.com](mailto:security@your-org.com)
 - **Subject**: "SECURITY: Slackbot Permissions Demo"
 
 ---

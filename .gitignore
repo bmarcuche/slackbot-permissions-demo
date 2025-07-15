@@ -1,3 +1,19 @@
+# Security and sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets.*
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+.ssh/
+.aws/
+.gcp/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -7,7 +7,7 @@ Thank you for your interest in contributing to the Slackbot Permissions Demo! Th
 1. **Fork the repository**
 2. **Clone your fork**
    ```bash
-   git clone git@github.com:YOUR_USERNAME/slackbot-permissions-demo.git
+   git clone git@github.com:YOUR_ORG/slackbot-permissions-demo.git
    cd slackbot-permissions-demo
    ```
 3. **Set up development environment**
