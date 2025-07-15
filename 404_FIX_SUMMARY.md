@@ -3,34 +3,57 @@
 ## 🔍 Issue Identified
 
 **Problem**: 404 error when accessing links related to "slackbot-permissions" in the repository
-**URL Pattern**: `https://github.com/bmarcuche/slackbot-permissions-demo/blob/slackbot-permissions`
+**URL Pattern**: `https://github.com/bmarcuche/slackbot-permissions-demo/tree/slackbot-permissions`
 
 ## 🎯 Root Cause Found
 
-The issue was caused by a **relative path reference** in `CONTRIBUTING.md`:
+The issue was caused by **TWO problematic relative path references**:
 
+### 1. Footer Link in README.md (MAIN CULPRIT)
+```markdown
+Built with ❤️ using [slackbot-permissions](../slackbot-permissions)
+```
+
+This relative link `../slackbot-permissions` was being interpreted by GitHub as a branch or directory within the current repository, generating the malformed URL:
+`https://github.com/bmarcuche/slackbot-permissions-demo/tree/slackbot-permissions`
+
+### 2. Installation Reference in CONTRIBUTING.md
 ```bash
-# PROBLEMATIC CODE (FIXED)
 pip install -e ../slackbot-permissions  # if available locally
 ```
 
-This relative path `../slackbot-permissions` was being interpreted by GitHub's markdown renderer as a potential link or reference, which could cause GitHub to generate malformed URLs when trying to resolve the path.
+## ✅ Fixes Applied
 
-## ✅ Fix Applied
-
-**File**: `CONTRIBUTING.md`  
-**Line**: ~39  
-**Change**: Replaced relative path with proper installation instructions
-
-### Before:
-```bash
-# Install slackbot-permissions in development mode
-pip install -e ../slackbot-permissions  # if available locally
+### Fix 1: README.md Footer Link
+**File**: `README.md` (line ~254)  
+**Changed from**:
+```markdown
+Built with ❤️ using [slackbot-permissions](../slackbot-permissions)
+```
+**Changed to**:
+```markdown
+Built with ❤️ using [slackbot-permissions](https://github.com/your-org/slackbot-permissions)
 ```
 
-### After:
+### Fix 2: README.md Description Link
+**File**: `README.md` (line ~3)  
+**Changed from**:
+```markdown
+A minimal Slackbot that demonstrates the capabilities of the `slackbot-permissions` module...
+```
+**Changed to**:
+```markdown
+A minimal Slackbot that demonstrates the capabilities of the [`slackbot-permissions`](https://github.com/your-org/slackbot-permissions) module...
+```
+
+### Fix 3: CONTRIBUTING.md Installation Instructions
+**File**: `CONTRIBUTING.md` (line ~39)  
+**Changed from**:
 ```bash
-# Install slackbot-permissions in development mode
+pip install -e ../slackbot-permissions  # if available locally
+```
+**Changed to**:
+```bash
 pip install slackbot-permissions  # Install from PyPI
 # OR if you have the source code locally:
 # pip install -e /path/to/slackbot-permissions
