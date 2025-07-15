@@ -32,7 +32,7 @@ Built with ❤️ using [slackbot-permissions](../slackbot-permissions)
 ```
 **Changed to**:
 ```markdown
-Built with ❤️ using [slackbot-permissions](https://github.com/your-org/slackbot-permissions)
+Built with ❤️ using [slackbot-permissions](https://github.com/bmarcuche/slackbot-permissions)
 ```
 
 ### Fix 2: README.md Description Link
@@ -43,7 +43,7 @@ A minimal Slackbot that demonstrates the capabilities of the `slackbot-permissio
 ```
 **Changed to**:
 ```markdown
-A minimal Slackbot that demonstrates the capabilities of the [`slackbot-permissions`](https://github.com/your-org/slackbot-permissions) module...
+A minimal Slackbot that demonstrates the capabilities of the [`slackbot-permissions`](https://github.com/bmarcuche/slackbot-permissions) module...
 ```
 
 ### Fix 3: CONTRIBUTING.md Installation Instructions
