@@ -36,7 +36,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Install slackbot-permissions in development mode
-pip install -e ../slackbot-permissions  # if available locally
+pip install slackbot-permissions  # Install from PyPI
+# OR if you have the source code locally:
+# pip install -e /path/to/slackbot-permissions
 ```
 
 ### Configuration
