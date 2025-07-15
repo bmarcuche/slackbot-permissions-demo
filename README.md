@@ -208,15 +208,21 @@ The bot uses the `slackbot-permissions` module for access control:
 
 ## 🤝 Contributing
 
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
 1. Fork the repository
 2. Create a feature branch
 3. Add tests for new functionality
 4. Ensure all tests pass
 5. Submit a pull request
 
+## 🔒 Security
+
+Please see [SECURITY.md](SECURITY.md) for our security policy and how to report vulnerabilities.
+
 ## 📄 License
 
-MIT License - see LICENSE file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🆘 Troubleshooting
 
