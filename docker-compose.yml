@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  slackbot-demo:
+    build: .
+    container_name: slackbot-demo
+    restart: unless-stopped
+    ports:
+      - "3000:3000"  # Bot server
+      - "8080:8080"  # Metrics
+    environment:
+      - LOG_LEVEL=INFO
+      - DEBUG=false
+      - ENABLE_METRICS=true
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - slackbot-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: slackbot-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - slackbot-network
+    profiles:
+      - monitoring
+
+  # Optional: Grafana for metrics visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: slackbot-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - slackbot-network
+    profiles:
+      - monitoring
+
+networks:
+  slackbot-network:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+  grafana_data:

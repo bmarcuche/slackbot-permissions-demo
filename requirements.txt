@@ -1,0 +1,23 @@
+# Core dependencies
+slack-bolt>=1.18.0
+slackbot-permissions>=1.0.0
+python-dotenv>=1.0.0
+structlog>=23.1.0
+pydantic>=2.0.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+# Production dependencies
+gunicorn>=21.0.0
+prometheus-client>=0.16.0
+uvicorn>=0.23.0
+fastapi>=0.100.0
+
+# Security
+cryptography>=41.0.0
