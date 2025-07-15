@@ -1,6 +1,6 @@
 # Slackbot Permissions Demo
 
-A minimal Slackbot that demonstrates the capabilities of the `slackbot-permissions` module with an interactive menu system and role-based access control.
+A minimal Slackbot that demonstrates the capabilities of the [`slackbot-permissions`](https://github.com/your-org/slackbot-permissions) module with an interactive menu system and role-based access control.
 
 ## 🎯 Purpose
 
@@ -251,4 +251,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-Built with ❤️ using [slackbot-permissions](../slackbot-permissions)
+Built with ❤️ using [slackbot-permissions](https://github.com/your-org/slackbot-permissions)
